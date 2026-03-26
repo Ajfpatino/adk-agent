@@ -3,18 +3,6 @@ import { LlmAgent } from "@google/adk";
 import { Type, type Schema } from "@google/genai";
 import { readGoogleDriveTool } from "./src/tools/readGoogleDriveTool";
 
-const simplePlanSchema: Schema = {
-  type: Type.OBJECT,
-  properties: {
-    message: { type: Type.STRING },
-    tasks: {
-      type: Type.ARRAY,
-      items: { type: Type.STRING },
-    },
-  },
-  required: ["message", "tasks"],
-};
-
 const rootAgent = new LlmAgent({
   name: "onboarding_assistant_agent",
   model: "gemini-3.1-flash-lite-preview",
